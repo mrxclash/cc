@@ -1,0 +1,53 @@
+Title-
+
+Find a procedure to transfer the files from one virtual
+machine to another virtual machine
+
+Steps-
+
+Download and install Oracle's Virtual Box-
+https://www.virtualbox.org/wiki/Downloads
+
+Download Ubuntu VMDK Image-
+
+https://drive.google.com/file/d/1sJ1llAWL8KlpNZfCZR26sjaILp6n0BrD/view?usp=sharing
+
+Launch Virtualbox and create a new VM
+
+Click on new and mention the Name and the machine
+folder along with the Type and Version of the Machine to
+be created.
+
+Assign memory size for our VM (1024 MB sufficient for
+now).
+
+Select the option Use an existing virtual hard disk file
+and locate the downloaded VMDK image and create VM
+
+Now we have to create a NAT Network so go to File ->
+Preferences -> Network -> Add a New NAT Network
+(Click on +)
+
+Right click and edit the Network name and CIDR if
+needed.
+
+Repeat the process of launching the VM for 2 instances
+
+Now go to the setting, go to the network setting and change the
+adapter to NAT Network and select the NAT Network you made
+
+Launch the VM now
+
+Install the net-tools to know the IP's of the instance
+
+create a file and write something into it
+
+If your file is on the VM with IP **172.168.2.4** and the second
+VM's IP is **172.168.2.5**.
+
+Transfer the file using **SCP**
+
+$ scp tranfer.txt vagrant@172.168.2.5:/home/vagrant
+
+Check for the file in the Second VM under the **/home/vagrant**
+directory
